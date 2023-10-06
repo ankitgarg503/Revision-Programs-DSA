@@ -1,18 +1,22 @@
 #include <iostream>
 #include <string>
+#include<algorithm>
 using namespace std;
 
-// Function to swap characters at positions i and j in the string
-// void swap(string& str, int i, int j) {
-//     char temp = str[i];
-//     str[i] = str[j];
-//     str[j] = temp;
-// }
+
+void permutation2(string str){
+    do
+    {
+        cout<<str<<endl;
+    } while (next_permutation(str.begin(), str.end()));
+    
+}
+
 
 // Recursive function to generate permutations of a string
 void permutations(string str, int start, int end) {
     if (start == end) {
-        cout << str << "   ";
+        cout << str << "  \n ";
         return;
     }
 
@@ -33,7 +37,9 @@ int main() {
 
     int n = str.length();
     cout << "Permutations of the string are:" << endl;
-    permutations(str, 0, n - 1);
+     permutations(str, 0, n - 1);
+     cout<<"***** ******** ******\n"<<endl;
+    permutation2(str);
 
     return 0;
 }
