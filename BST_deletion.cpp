@@ -51,6 +51,32 @@ Node* inorderPredessor(Node* root,int data){
  
 }
 
+Node* insertNode(Node* root,int data){
+    Node* temp=root;
+    Node* prev=NULL;
+    while(root){
+        prev=root;
+        if(root->data==data){
+            cout<<"Insertion notpossible"<<endl;
+            break;
+        }
+        if(root->data<data){
+            root=root->right;
+        }
+        else{
+            root=root->left;
+        }
+    }
+    Node* newNode=createNode(data);
+    if(prev->data>data){
+        prev->left=newNode;
+    }
+    else{
+        prev->right=newNode;
+    }
+  return temp;
+}
+
 Node* deleteNode(Node* root,int data){
      Node* iPre;
      if (root==NULL){
@@ -92,8 +118,8 @@ int main(){
     fourth->left=NULL;
     fourth->right=NULL;   
     inOrderTraversal(root); 
-
-    root=deleteNode(root,5); 
+     root=insertNode(root,12);
+    // root=deleteNode(root,5); 
     cout<<endl;
     inOrderTraversal(root); 
     
