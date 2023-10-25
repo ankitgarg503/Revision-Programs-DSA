@@ -15,17 +15,6 @@ int solve(vector<int>& cost,int n,vector<int>& dp){
     dp[n]= min(solve(cost,n-1,dp),solve(cost,n-2,dp))+cost[n];
     return dp[n];
 }
-/*
-int solve(vector<int>& cost,int n){
-    if(n==0)
-        return cost[0];
-    if(n==1)
-        return cost[1];
-
-    return min(solve(cost,n-1),solve(cost,n-2))+cost[n];
-}
-*/
-
 
 int main(){
     vector<int> cost{1,100,1,1,1,100,1,1,100,1};
