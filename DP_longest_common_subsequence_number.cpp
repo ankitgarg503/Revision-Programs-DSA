@@ -27,8 +27,8 @@ int longestIncreasingSubsequence(int arr[], int n)
     return solve(arr,n,0,-1,dp);
 }
 int main(){
-    int arr[]={22,33,4,5,66,7,8,99,3,45,6,77};
-    int ans=longestIncreasingSubsequence(arr,12);
+    int arr[]={1,2,1,7,9,5};
+    int ans=longestIncreasingSubsequence(arr,6);
     cout<<ans<<endl;
     return 0;
 }
