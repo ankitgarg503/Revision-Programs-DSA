@@ -19,12 +19,12 @@ int solve(string a ,string b,int i,int j,vector<vector<int>>& dp){
 
 
 int main(){
-    string a="nitya";
+    string a="nitin";
     string c="ankit";
     string b=a;
     reverse(b.begin(), b.end());
     vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,-1));
-    int ans=solve(a,c,0,0,dp);
+    int ans=solve(a,b,0,0,dp);
     cout<<ans<<endl;
     return 0;
 }

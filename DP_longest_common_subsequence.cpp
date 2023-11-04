@@ -18,8 +18,8 @@ int solve(string a ,string b,int i,int j,vector<vector<int>>& dp){
 
 
 int main(){
-    string a="ankitgargsaini";
-    string b="nityankitgargsaini";
+    string a="ankit";
+    string b="nitya";
     vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,-1));
     int ans=solve(a,b,0,0,dp);
     cout<<ans<<endl;

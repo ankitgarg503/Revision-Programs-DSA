@@ -3,6 +3,41 @@
 using namespace std;
 
 
+//At most k times buy and sell transaction k
+
+int solve4(vector<int>& v,int index,int k,int noOfOperation,vector<vector<int>>& dp){
+     if(index>=v.size()){
+        return 0;
+     }
+     if(dp[index][noOfOperation]!=-1){
+            return dp[index][noOfOperation];
+     }
+     if(noOfOperation>=2*k){
+        return 0;
+     }
+     int profit=0;
+     if(noOfOperation%2==0){
+         profit=max(-v[index]+solve4(v,index+1,k,noOfOperation+1,dp),solve4(v,index+1,k,noOfOperation,dp));
+     }
+     else{
+        profit=max(v[index]+solve4(v,index,k,noOfOperation+1,dp),solve4(v,index+1,k,noOfOperation,dp));
+     }
+     dp[index][noOfOperation]= profit;
+     return dp[index][noOfOperation];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // At most 2 times
 int solve3(vector<int>& v,int buy,int index, vector<vector<vector<int>>>& dp,int limit){
      if(index>=v.size()){
@@ -62,15 +97,21 @@ int solve(vector<int>& v){
 
 
 int main(){
-    vector<int> v={7,1,5,3,6,4};
+    // vector<int> v={3,2,6,5,0,3};
+    vector<int> v={2,4,1};
     // int ans=solve(v);
     // cout<<ans<<endl;
     int n=v.size();
     // vector<vector<int>>dp(n+1,vector<int>(2,-1));
     //  int ans=solve2(v,1,0,dp);
     //  cout<<ans<<endl;
-    vector<vector<vector<int>>>dp(n+1,vector<vector<int>>(2,vector<int>(3,-1)));
-     int ans=solve3(v,1,0,dp,2);
-     cout<<ans<<endl;
+    // vector<vector<vector<int>>>dp(n+1,vector<vector<int>>(2,vector<int>(3,-1)));
+    //  int ans=solve3(v,1,0,dp,2);
+    // cout<<ans<<endl;
+    int k=2;
+    vector<vector<int>>dp(n+1,vector<int>(2*k+1,-1));
+    int ans=solve4(v,0,k,0,dp);
+    cout<<ans<<endl;
+
     return 0;
 }
